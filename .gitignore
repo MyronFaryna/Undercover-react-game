@@ -1,5 +1,5 @@
 node_modules
 dist
-dev_dist
+dev-dist
 .env
 .DS_Store
