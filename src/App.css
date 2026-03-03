@@ -1,0 +1,224 @@
+/* Layout */
+:root{
+  --bg1: #0b1026;
+  --bg2: #2b0b3f;
+  --card: rgba(255,255,255,0.10);
+  --stroke: rgba(255,255,255,0.18);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+  --accent: #ffd166;
+  --accent2: #06d6a0;
+}
+
+body{
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(255,209,102,0.18), transparent 60%),
+              radial-gradient(900px 600px at 80% 30%, rgba(6,214,160,0.14), transparent 60%),
+              linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--text);
+}
+.impostorImg{
+  max-width: 120px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
+}
+.page{
+  min-height:100vh;
+  width:100vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  box-sizing:border-box;
+}
+
+.card{
+  width:min(520px, 100%);
+  border:1px solid var(--stroke);
+  border-radius:20px;
+  padding:18px;
+  box-sizing:border-box;
+  box-shadow:0 18px 50px rgba(0,0,0,0.35);
+  background: rgba(10, 12, 24, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.brand{
+  font-weight:800;
+  letter-spacing:0.5px;
+}
+
+.screen{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.title{
+  margin:0;
+  font-size:40px;
+  letter-spacing:-0.02em;
+}
+
+.subtitle{
+  margin:0;
+  font-size:26px;
+  letter-spacing:-0.01em;
+}
+
+/* Text helpers */
+.muted{ color: var(--muted); opacity: 1; }
+.small{ font-size:12px; }
+.center{ text-align:center; }
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:2px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.18);
+  font-weight:700;
+}
+
+/* Inputs */
+.field{ display:flex; flex-direction:column; gap:8px; }
+.label{ font-size:14px; font-weight:700; }
+.input{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.18);
+  background:rgba(0,0,0,0.25);
+  color:inherit;
+  font-size:16px;
+  box-sizing:border-box;
+  outline:none;
+}
+.input:focus{
+  border-color: rgba(255,255,255,0.35);
+}
+
+.hint{
+  font-size:12px;
+  opacity:0.7;
+}
+
+/* Buttons */
+.row{
+  display:flex;
+  gap:10px;
+  margin-top:6px;
+}
+
+.btn{
+  flex:1;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.18);
+  background:rgba(0,0,0,0.25);
+  color:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.btn.primary{
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#111;
+  border-color:transparent;
+}
+
+.btn.disabled{
+  opacity:0.45;
+  cursor:not-allowed;
+}
+
+.ghost{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:12px;
+  padding:8px 10px;
+  color:inherit;
+  cursor:pointer;
+}
+
+/* Hold to reveal */
+.revealWrap{ display:flex; flex-direction:column; gap:10px; }
+
+.holdBox{
+  border:2px dashed rgba(255,255,255,0.25);
+  border-radius:18px;
+  padding:18px;
+  height: 220px;          /* ⬅ σταθερό κουτί */
+  display:grid;
+  place-items:center;
+  overflow: hidden;       /* ⬅ κόβει ό,τι ξεφεύγει */
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:none;
+}
+.holdText{
+  font-size:22px;
+  font-weight:900;
+  text-align:center;
+}
+
+.reveal{
+  width: 100%;
+  height: 100%;
+  display: flex;          /* ⬅ πιο εύκολο layout */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+.role{
+  font-size:26px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+.role.bad{ opacity:0.95; }
+.role.good{ opacity:0.95; }
+.line{ margin-top: 0px; font-size:16px; }
+
+/* Starter */
+.starterBox{
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+.starterNum {
+  font-size: 72px;
+  background: linear-gradient(135deg, #ffd166, #06d6a0);
+
+  background-clip: text;            /* standard */
+  -webkit-background-clip: text;    /* chrome/safari */
+
+  color: transparent;               /* fallback */
+  -webkit-text-fill-color: transparent;
+}
+.starterLabel{
+  opacity:0.8;
+  font-weight:700;
+}
+
+
+
+/* Mobile tweaks */
+@media (max-width: 420px){
+  .title{ font-size:34px; }
+  .subtitle{ font-size:22px; }
+  .starterNum{ font-size:52px; }
+}
