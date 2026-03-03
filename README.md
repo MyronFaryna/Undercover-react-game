@@ -1,16 +1,52 @@
-# React + Vite
+# Impostor Party Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first social deduction party game built with React.
 
-Currently, two official plugins are available:
+Players pass the phone and reveal their role by holding the screen. 
+Most players see the secret word, while the impostor only receives a hint and must figure out the word during the discussion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The game is designed for quick in-person play with a single device.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Random role assignment
+- Hold-to-reveal interaction
+- Random starting player
+- Avatar system (cats & mice theme)
+- Large Greek word pool
+- Mobile friendly UI
+- Progressive Web App support (installable)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+React  
+Vite  
+JavaScript  
+CSS  
+
+---
+
+## Game Flow
+
+1. Set number of players and impostors
+2. Pass the phone to each player
+3. Hold the screen to reveal your role
+4. Discuss the word
+5. Try to identify the impostor
+
+---
+
+## Status
+
+Project in development – UI improvements and new features are being added.
+
+---
+
+## Author
+
+Built as a web development project using React.
+
