@@ -8,6 +8,7 @@ import normal3 from "./assets/Grey.png";
 import normal4 from "./assets/Olivia.png";
 import normal5 from "./assets/Orange.png";
 import normal6 from "./assets/White.png";
+import mascot from "./assets/mascot.png";
 
 const SCREENS = {
   WELCOME: "WELCOME",
@@ -53,17 +54,17 @@ export default function App() {
   }
 
   function generateGame() {
-
+    // pick a word
     const randomWord = ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)];
 
-    // Pick random impostors
+    // pick impostors
     const impostorSet = new Set();
     while (impostorSet.size < impostors) {
       const randomIndex = Math.floor(Math.random() * players);
       impostorSet.add(randomIndex);
     }
 
-    // Shuffle avatars and assign one per player (works for 10–12 players too)
+    // assign shuffled normal avatars for all players
     let playerAvatars = [];
     while (playerAvatars.length < players) {
       playerAvatars = playerAvatars.concat(shuffleArray(normalImgs));
@@ -94,15 +95,18 @@ export default function App() {
 
   return (
     <div className="page">
-      <div className="card">
-        <header className="topbar">
-          <div className="brand">Undercover</div>
-        </header>
+      <div className="frame">
+        
+        <div className="brandHeader">
+          <div className="brandTitle">UNDERCOVER</div>
+          <img className="brandMascot" src={mascot} alt="Undercover mascot" />
+        </div>
 
+      <div className="card">
         {screen === SCREENS.WELCOME && (
           <section className="screen">
             <h1 className="title">Welcome</h1>
-            <p className="muted">Pass the phone. Hold to reveal roles.</p>
+            <p className="tagline">Find the rat</p>
 
             <button className="btn primary" onClick={() => setScreen(SCREENS.SETTINGS)}>
               Start
@@ -252,6 +256,7 @@ export default function App() {
             </div>
           </section>
         )}
+        </div>
       </div>
     </div>
   );
