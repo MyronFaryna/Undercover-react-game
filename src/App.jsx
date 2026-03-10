@@ -34,6 +34,7 @@ export default function App() {
   // Settings
   const [players, setPlayers] = useState(6);
   const [impostors, setImpostors] = useState(1);
+  const [randomImpostors, setRandomImpostors] = useState(false);
 
   // Game state
   const [assignments, setAssignments] = useState(null); // { impostorSet, word, hint, playerAvatars }
@@ -58,8 +59,13 @@ export default function App() {
     const randomWord = ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)];
 
     // pick impostors
+    let impostorCount = impostors;
+
+    if (randomImpostors) {
+      impostorCount = Math.floor(Math.random() * (Math.floor(players / 2) + 1));
+    }
     const impostorSet = new Set();
-    while (impostorSet.size < impostors) {
+    while (impostorSet.size < impostorCount) {
       const randomIndex = Math.floor(Math.random() * players);
       impostorSet.add(randomIndex);
     }
@@ -140,13 +146,30 @@ export default function App() {
               <input
                 className="input"
                 type="number"
+                disabled={randomImpostors}
                 min={1}
                 max={Math.max(1, players - 1)}
                 value={impostors}
                 onChange={(e) => setImpostors(Number(e.target.value))}
               />
               <div className="hint">Max: {players - 1}</div>
-            </div>
+              </div>
+              <div className="field">
+                <label className="label">
+                  <input
+                    type="checkbox"
+                    checked={randomImpostors}
+                    onChange={(e) => setRandomImpostors(e.target.checked)}
+                  />
+                  Random Impostors Mode
+                </label>
+
+                {randomImpostors && (
+                  <div className="hint">
+                    Impostors will be randomly selected 
+                  </div>
+                )}
+              </div>
 
             <div className="row">
               <button className="btn" onClick={() => setScreen(SCREENS.WELCOME)}>
