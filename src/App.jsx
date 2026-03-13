@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { ALL_WORDS } from "./word";
+import { WORDS } from "./word";
 import ratImg from "./assets/rat.png";
 import normal1 from "./assets/Black-White.png";
 import normal2 from "./assets/Cleo.png";
@@ -56,7 +56,7 @@ export default function App() {
 
   function generateGame() {
     // pick a word
-    const randomWord = ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)];
+    const randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
 
     // pick impostors
     let impostorCount = impostors;
