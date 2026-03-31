@@ -67,11 +67,6 @@ export const WORDS = [
 { word: "ΟΔΟΝΤΙΑΤΡΟΣ", hint: "Καρέκλα" },
 { word: "ΚΟΥΡΕΙΟ", hint: "Καθρέφτης" },
 
-{ word: "ΧΑΜΟΓΕΛΟ", hint: "Selfie" },
-{ word: "ΔΑΚΡΥ", hint: "Ταινία" },
-{ word: "ΘΥΜΟΣ", hint: "Φωνή" },
-{ word: "ΑΓΧΟΣ", hint: "Ρολόι" },
-{ word: "ΑΓΑΠΗ", hint: "Μήνυμα" }
 
 ];
 export default WORDS;

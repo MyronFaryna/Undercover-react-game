@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { WORDS } from "./word";
-import ratImg from "./assets/rat.png";
+import ratImg from  "./assets/rat.png";
 import normal1 from "./assets/Black-White.png";
 import normal2 from "./assets/Cleo.png";
 import normal3 from "./assets/Grey.png";
@@ -40,6 +40,7 @@ export default function App() {
   const [assignments, setAssignments] = useState(null); // { impostorSet, word, hint, playerAvatars }
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [starter, setStarter] = useState(null);
+  const [usedWords, setUsedWords] = useState([]);
 
   // Reveal UX
   const [isRevealing, setIsRevealing] = useState(false);
@@ -56,7 +57,28 @@ export default function App() {
 
   function generateGame() {
     // pick a word
-    const randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+    let availableWords = WORDS.filter(
+      (wordObj) => !usedWords.includes(wordObj.word)
+    );
+
+    // αν έχουν χρησιμοποιηθεί όλες οι λέξεις, ξεκινά νέος κύκλος
+    if (availableWords.length === 0) {
+      availableWords = WORDS;
+      setUsedWords([]);
+    }
+
+    const randomWord =
+      availableWords[Math.floor(Math.random() * availableWords.length)];
+
+    setUsedWords((prev) => {
+    // αν μόλις έγινε reset, ξεκίνα νέο cycle
+      if (availableWords.length === WORDS.length) {
+        return [randomWord.word];
+      }
+
+      return [...prev, randomWord.word];
+    });
+    
 
     // pick impostors
     let impostorCount = impostors;
